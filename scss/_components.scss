@@ -40,6 +40,7 @@
     display: flex;
     justify-content: center;
     margin: auto;
+    cursor: pointer;
 
     .title{
         font-size: 90px;
@@ -84,6 +85,7 @@
     padding: 1em 2.2em 1.5em;
     margin: auto 0 auto auto;
     font-size: 3rem;
+    cursor: pointer;
 
     .card-content{
         margin: auto;
