@@ -13,6 +13,27 @@
         width: 100%;
         height: auto;
     }
+
+    @include xs-mobile{
+        width: 100%;
+        margin: auto;
+        right: 0;
+        left: 0;
+    }
+
+    @include mobile{
+        width: 100%;
+        margin: auto;
+        right: 0;
+        left: 0;
+    }
+
+    @include tablet{
+        width: 100%;
+        margin: auto;
+        right: 0;
+        left: 0;
+    }
 }
 
 .header{
@@ -23,10 +44,39 @@
     .title{
         font-size: 90px;
         letter-spacing: -2px;
+        text-align: center;
+
+        @include xs-mobile{
+            font-size: 2.05rem;
+            letter-spacing: 0px;
+        }
+
+        @include mobile{
+            font-size: 2.8rem;
+            letter-spacing: 0px;
+        }
+
+        @include tablet{
+            font-size: 4rem;
+            letter-spacing: 0px;
+            margin: 0 auto auto;
+        }
     }
 
     &.initial{
         background-color: transparent;
+    }
+
+    @include xs-mobile{
+        transform:translateY(-200%);
+    }
+
+    @include mobile{
+        transform:translateY(-200%);
+    }
+
+    @include tablet{
+        transform:translateY(-300%);
     }
 }
 
@@ -44,6 +94,30 @@
 
     &.initial{
         visibility: hidden;
+    }
+
+    @include xs-mobile{
+        margin: 5% auto auto auto;
+        font-size: 1rem;
+        width: 100%;
+        display: flex;
+        transform:translateY(-50%);
+    }
+
+    @include mobile{
+        margin: 5% auto auto auto;
+        font-size: 1.4rem;
+        width: 100%;
+        display: flex;
+        transform:translateY(-60%);
+    }
+
+    @include tablet {
+        margin: 5% auto auto auto;
+        font-size: 2rem;
+        width: 100%;
+        display: flex;
+        transform:translateY(-100%);
     }
 }
 

@@ -1,19 +1,8 @@
+// colors
 $bg-color: #171717;
 $card-color: #444444;
 $accent-color: #da0037;
 $text-color: #ededed;
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-body{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
 
 .background{
     background-color: $bg-color;
@@ -32,6 +21,8 @@ body{
     font-style: italic;
 }
 
+
+// fonts
 .serif{
     font-family: 'Merriweather', serif;
 }
@@ -39,3 +30,40 @@ body{
 .sans-serif{
     font-family: 'Noto Sans', sans-serif;
 }
+
+
+// resets
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+$small-mobile: 350px;
+$large-mobile: 600px;
+$tablet: 800px;
+
+@mixin xs-mobile{
+    @media (max-width: $small-mobile){
+        @content
+    }
+}
+
+@mixin mobile{
+    @media (max-width: $large-mobile) and (min-width: $small-mobile) {
+        @content
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) and (min-width: $large-mobile) {
+        @content
+    }
+}
+

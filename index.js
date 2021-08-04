@@ -48,7 +48,6 @@ header.addEventListener("click", () => {
         openCloseMouth(300);
     } else {
         if (checkClick){
-            console.log(description.innerHTML);
             if (description.classList.contains("initial")){
                 description.classList.remove("initial");
                 openCloseMouth(300);
@@ -64,12 +63,14 @@ header.addEventListener("click", () => {
 });
 
 description.addEventListener("click", () => {
-    header.style.marginLeft = "0";
-    description.style.margin = "auto auto auto 0";
-    imgContainer.style.right = "0";
-    imgContainer.style.left = "auto";
-    cta.innerHTML = '<p class="text-color serif">Click here for</p><p class="text-color serif"><span class="accent-color">MORE</span> Varun</p><img class="arrow-icon" src="./images/arrow.png" alt="">';
-    varun.src = "./images/closed-mouth-right.png";
-    varun.ariaLabel = "right";
+    if (screen.width > 800){
+        header.style.marginLeft = "0";
+        description.style.margin = "auto auto auto 0";
+        imgContainer.style.right = "0";
+        imgContainer.style.left = "auto";
+        cta.innerHTML = '<p class="text-color serif">Click here for</p><p class="text-color serif"><span class="accent-color">MORE</span> Varun</p><img class="arrow-icon" src="./images/arrow.png" alt="">';
+        varun.src = "./images/closed-mouth-right.png";
+        varun.ariaLabel = "right";
+    }
 });
 
