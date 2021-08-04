@@ -2,3 +2,40 @@ $bg-color: #171717;
 $card-color: #444444;
 $accent-color: #da0037;
 $text-color: #ededed;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.background{
+    background-color: $bg-color;
+}
+
+.card-color{
+    background-color: $card-color;
+}
+
+.text-color{
+    color: $text-color;
+}
+
+.accent-color{
+    color: $accent-color;
+    font-style: italic;
+}
+
+.serif{
+    font-family: 'Merriweather', serif;
+}
+
+.sans-serif{
+    font-family: 'Noto Sans', sans-serif;
+}

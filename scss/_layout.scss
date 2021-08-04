@@ -1,0 +1,16 @@
+@use "./base" as *;
+
+.card{
+    padding: .5% 3%;
+    border-radius: .6rem;
+}
+
+.container{
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 5% 10%;
+    align-content: center;
+    flex-direction: column;
+}
