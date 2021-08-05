@@ -76,7 +76,7 @@ header.addEventListener("click", () => {
             if (description.classList.contains("initial")){
                 if (screen.width > laptopWidth){
                     pos = description.getBoundingClientRect().left;
-                    step = pos / 1000;
+                    step = pos / 500;
                     first = true;
                     id = setInterval(() => {
                         if (pos > 0){
