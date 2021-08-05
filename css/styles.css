@@ -95,6 +95,7 @@ body {
 
 .header {
   display: flex;
+  position: relative;
   justify-content: center;
   margin: auto;
   cursor: pointer;
@@ -135,7 +136,16 @@ body {
     font-size: 4rem;
   }
 }
-.header.initial {
+.header .title-bg {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  height: 100%;
+  width: 0;
+  z-index: -1;
+  border-radius: 0.6rem;
+}
+.header.initial .title-bg {
   background-color: transparent;
 }
 @media (max-width: 350px) {
