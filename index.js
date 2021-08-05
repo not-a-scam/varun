@@ -4,6 +4,8 @@ const description = document.getElementsByClassName("description")[0];
 const imgContainer = document.getElementsByClassName("img-container")[0];
 const cta = document.getElementsByClassName("cta")[0];
 
+const laptopWidth = 1050;
+
 let checkClick = false;
 let headerTop = {"initial": 0, "final":0};
 
@@ -67,62 +69,72 @@ header.addEventListener("click", () => {
     } else {
         if (checkClick){
             if (description.classList.contains("initial")){
-                pos = description.getBoundingClientRect().left;
-                console.log(pos);
+                if (screen.width > laptopWidth){
+                    pos = description.getBoundingClientRect().left;
+                    step = pos / 100;
+                    first = true;
+                    id = setInterval(() => {
+                        if (pos > 0){
+                            if (first){
+                                description.style.transform="translateX("+ pos+"px)";
+                                description.classList.remove("initial");
+                                openCloseMouth(300);
+                                first = false;
+                            } else {
+                                pos -= step;
+                                description.style.transform= "translateX("+ pos+"px)";
+                            }
+                        } else {
+                            clearInterval(id);
+                            pos = 0;
+                        }
+                    } ,10);
+                } else {
+                    description.classList.remove("initial");
+                    openCloseMouth(300);
+                }
+            }
+        } else {
+            if (screen.width > laptopWidth){
+                header.style.visibility = "hidden";
+                description.innerHTML = "<div class=\"card-content\"><p>I am:</p><ul><li>Very handsome</li><li>Very cool</li><li>Varun</li></ul></div>";
+                description.classList.add("card", "text-color", "sans-serif", "card-color", "initial");
+
+                header.style.margin = "auto auto 0";
+                headerTop.final = header.getBoundingClientRect().top;
+                pos = headerTop.initial - headerTop.final;
                 step = pos / 100;
+                clearInterval(id);
+                openCloseMouth(500);
                 first = true;
                 id = setInterval(() => {
                     if (pos > 0){
                         if (first){
-                            description.style.transform="translateX("+ pos+"px)";
-                            description.classList.remove("initial");
-                            openCloseMouth(300);
+                            header.style.visibility = "visible";
                             first = false;
                         } else {
                             pos -= step;
-                            description.style.transform= "translateX("+ pos+"px)";
+                            header.style.transform= "translateY("+ pos+"px)";
                         }
                     } else {
                         clearInterval(id);
                         pos = 0;
                     }
-                } ,10);
+                } ,5);
+                checkClick = true;
+            } else {
+                description.innerHTML = "<div class=\"card-content\"><p>I am:</p><ul><li>Very handsome</li><li>Very cool</li><li>Varun</li></ul></div>";
+                description.classList.add("card", "text-color", "sans-serif", "card-color", "initial");
+                header.style.margin = "auto auto 0";
+                openCloseMouth(300);
+                checkClick = true;
             }
-        } else {
-            header.style.visibility = "hidden";
-            description.innerHTML = "<div class=\"card-content\"><p>I am:</p><ul><li>Very handsome</li><li>Very cool</li><li>Varun</li></ul></div>";
-            description.classList.add("card", "text-color", "sans-serif", "card-color", "initial");
-
-            header.style.margin = "auto auto 0";
-            headerTop.final = header.getBoundingClientRect().top;
-            pos = headerTop.initial - headerTop.final;
-            step = pos / 100;
-            clearInterval(id);
-            openCloseMouth(500);
-            first = true;
-            id = setInterval(() => {
-                if (pos > 0){
-                    if (first){
-                        header.style.visibility = "visible";
-                        first = false;
-                    } else {
-                        pos -= step;
-                        header.style.transform= "translateY("+ pos+"px)";
-                    }
-                } else {
-                    clearInterval(id);
-                    pos = 0;
-                }
-            } ,5);
-
-
-            checkClick = true;
         }
     }
 });
 
 description.addEventListener("click", () => {
-    if (screen.width > 1050){
+    if (screen.width > laptopWidth){
         header.style.marginLeft = "0";
         description.style.margin = "auto auto auto 0";
         imgContainer.style.right = "0";
