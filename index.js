@@ -46,6 +46,7 @@ header.addEventListener("click", () => {
     let id = null;
     let pos = 0;
     let step = 0;
+    let first = true;
     if (header.classList.contains("initial")){
         header.classList.remove("initial");
         document.getElementsByClassName("title")[0].innerHTML = "Hi i'm <span class=\"accent-color\">Varun</span>";
@@ -66,14 +67,29 @@ header.addEventListener("click", () => {
     } else {
         if (checkClick){
             if (description.classList.contains("initial")){
-                description.classList.remove("initial");
-                openCloseMouth(300);
+                pos = description.getBoundingClientRect().left;
+                console.log(pos);
+                step = pos / 100;
+                first = true;
+                id = setInterval(() => {
+                    if (pos > 0){
+                        if (first){
+                            description.style.transform="translateX("+ pos+"px)";
+                            description.classList.remove("initial");
+                            openCloseMouth(300);
+                            first = false;
+                        } else {
+                            pos -= step;
+                            description.style.transform= "translateX("+ pos+"px)";
+                        }
+                    } else {
+                        clearInterval(id);
+                        pos = 0;
+                    }
+                } ,10);
             }
         } else {
             header.style.visibility = "hidden";
-            setTimeout(()=>{
-                console.log("hi")
-            }, 1000);
             description.innerHTML = "<div class=\"card-content\"><p>I am:</p><ul><li>Very handsome</li><li>Very cool</li><li>Varun</li></ul></div>";
             description.classList.add("card", "text-color", "sans-serif", "card-color", "initial");
 
@@ -83,7 +99,7 @@ header.addEventListener("click", () => {
             step = pos / 100;
             clearInterval(id);
             openCloseMouth(500);
-            let first = true
+            first = true;
             id = setInterval(() => {
                 if (pos > 0){
                     if (first){
