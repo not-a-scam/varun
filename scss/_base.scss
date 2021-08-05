@@ -48,6 +48,8 @@ body{
 $small-mobile: 350px;
 $large-mobile: 600px;
 $tablet: 800px;
+$large-tablet: 1050px;
+$small-laptop: 1300px;
 
 @mixin xs-mobile{
     @media (max-width: $small-mobile){
@@ -67,3 +69,14 @@ $tablet: 800px;
     }
 }
 
+@mixin large-tablet{
+    @media (max-width: $large-tablet) and (min-width: $tablet) and (min-height: $tablet){
+        @content
+    } 
+}
+
+@mixin small-laptop {
+    @media (max-width: $small-laptop) and (min-width: $large-tablet){
+        @content
+    } 
+}

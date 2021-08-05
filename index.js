@@ -63,14 +63,18 @@ header.addEventListener("click", () => {
 });
 
 description.addEventListener("click", () => {
-    if (screen.width > 800){
+    if (screen.width > 1050){
         header.style.marginLeft = "0";
         description.style.margin = "auto auto auto 0";
         imgContainer.style.right = "0";
         imgContainer.style.left = "auto";
+        imgContainer.style.height = "auto";
+        imgContainer.style.width = "30%";
         cta.innerHTML = '<p class="text-color serif">Click here for</p><p class="text-color serif"><span class="accent-color">MORE</span> Varun</p><img class="arrow-icon" src="./images/arrow.png" alt="">';
         varun.src = "./images/closed-mouth-right.png";
         varun.ariaLabel = "right";
+        varun.style.height = "auto";
+        varun.style.width = "100%";
     }
 });
 
